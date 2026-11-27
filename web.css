@@ -1,0 +1,21 @@
+.web-welcome:has(#auth[hidden]) { display: none; }
+.web-welcome { max-width: 1160px; margin: 0 auto; padding: clamp(18px, 5vw, 70px) clamp(16px, 4vw, 38px) 28px; }
+.web-intro { position: relative; overflow: hidden; display: flex; align-items: end; min-height: 310px; border-radius: 26px; border: 1px solid var(--border); background: #29231b; isolation: isolate; }
+.web-cover { position: absolute; z-index: -2; width: 100%; height: 100%; inset: 0; object-fit: cover; object-position: 52% 40%; }
+.web-intro::before { position: absolute; z-index: -1; inset: 0; content: ""; background: linear-gradient(180deg, #17131015 10%, #171310e8 70%, #171310 100%); }
+.web-intro-copy { padding: clamp(22px, 5vw, 54px); max-width: 36rem; }
+.web-intro h2 { font-family: Georgia, serif; font-size: clamp(2.15rem, 6vw, 4.1rem); font-weight: 500; letter-spacing: -.04em; }
+.web-intro p { color: #e5d9c9; }
+.web-download, .web-app-download { display: inline-flex; align-items: center; min-height: 44px; padding: 9px 16px; font-weight: 700; text-decoration: none; border-radius: 12px; color: #24170a; background: var(--primary); }
+.web-app-download { font-size: .875rem; padding-inline: 10px; white-space: nowrap; }
+.web-install, .web-footer { font-size: .875rem; }
+.web-install summary { cursor: pointer; color: var(--accent); }
+.web-welcome .auth { padding: 24px; margin: 12px 0 0; width: 100%; max-width: none; border: 1px solid var(--border); border-radius: 24px; background: var(--surface); }
+.web-footer { display: flex; flex-wrap: wrap; gap: 12px 24px; padding: 22px 5px 0; }
+.web-footer a { color: var(--muted); text-underline-offset: 4px; }
+@media (min-width: 800px) {
+  .web-welcome { display: grid; grid-template-columns: minmax(0, 1.48fr) minmax(0, 1fr); gap: 18px; }
+  .web-welcome .auth { margin: 0; padding: 42px; align-content: center; }
+  .web-footer { grid-column: 1 / -1; }
+}
+@media (max-width: 370px) { .web-app-download { display: none; } }

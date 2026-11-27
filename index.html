@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#151311">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://firestore.googleapis.com https://europe-west1-dertdasv2.cloudfunctions.net https://dertdas-api.onrender.com; object-src 'none'; base-uri 'none'">
+  <title>Dertdaş · İçinde kalmasın</title>
+  <meta name="description" content="Dertdaş topluluklarına katıl, bir yazılı sohbete eşleş veya Android uygulamasını indir.">
+  <link rel="stylesheet" href="web.css">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="config.js"></script>
+  <script defer src="app.js"></script>
+  <script defer src="rooms.js"></script>
+  <script defer src="release.js"></script>
+  <script defer src="written.js"></script>
+  <script defer src="journal.js"></script>
+</head>
+<body>
+<svg class="icon-definitions" aria-hidden="true"><symbol id="i-brand" viewBox="0 0 24 24"><path d="M20 11a8 8 0 0 1-8 8 9 9 0 0 1-3-.6L5 20l1.1-3.5A8 8 0 1 1 20 11Z M9 11h6 M12 8v6"/></symbol><symbol id="i-search" viewBox="0 0 24 24"><path d="M17 17l4 4 M19 11a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/></symbol><symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 4v5h-5 M4 12a8 8 0 0 1 14-5l2 2 M20 12a8 8 0 0 1-14 5l-2-2 M4 20v-5h5"/></symbol><symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10 12 3l9 7v9a2 2 0 0 1-2 2h-4v-7H9v7H5a2 2 0 0 1-2-2Z"/></symbol><symbol id="i-community" viewBox="0 0 24 24"><path d="M3 3h7v7H3z M14 3h7v7h-7z M3 14h7v7H3z M14 14h7v7h-7z"/></symbol><symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14 M5 12h14"/></symbol><symbol id="i-chat" viewBox="0 0 24 24"><path d="M20 11.5a8 8 0 0 1-8 8 9 9 0 0 1-3.2-.6L4 20l1.2-4A8 8 0 1 1 20 11.5Z M8.5 11.5h7"/></symbol><symbol id="i-person" viewBox="0 0 24 24"><path d="M16 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></symbol><symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.8 8.7c0 4-8.8 9.2-8.8 9.2S3.2 12.7 3.2 8.7a4.4 4.4 0 0 1 8.8-1 4.4 4.4 0 0 1 8.8 1Z"/></symbol><symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 2.8 14.3 9.7 21.2 12 14.3 14.3 12 21.2 9.7 14.3 2.8 12 9.7 9.7Z"/></symbol><symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 20 6v5c0 5-4.4 8.6-8 10-3.6-1.4-8-5-8-10V6Z M9 12l2 2 4-4"/></symbol><symbol id="i-work" viewBox="0 0 24 24"><path d="M3 7h18v13H3Z M8 7V4h8v3 M3 12c7 3 11 3 18 0"/></symbol><symbol id="i-edit" viewBox="0 0 24 24"><path d="M13.5 5.5 18.5 10.5 M4 20l4.5-1 11-11a3.5 3.5 0 0 0-5-5l-11 11Z"/></symbol><symbol id="i-journal" viewBox="0 0 24 24"><path d="M5 20V5a2 2 0 0 1 2-2h12v17H7a2 2 0 0 1 0-4h12 M9 7h6 M9 11h4"/></symbol><symbol id="i-wallet" viewBox="0 0 24 24"><path d="M19 8V6a2 2 0 0 0-2-2L5 7a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9H5 M21 13h-5a2 2 0 0 0 0 4h5"/></symbol><symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol></svg>
+<div class="web-welcome">
+  <section class="web-intro" aria-labelledby="welcomeTitle">
+    <img class="web-cover" src="bosphorus.webp" alt="" width="1024" height="680">
+    <div class="web-intro-copy">
+      <h2 id="welcomeTitle">Bazen konuşmak iyi gelir.</h2>
+      <p>Aile, ilişkiler, kumar sorunları ve günlük hayat üzerine paylaşım yap. İstersen bir odada 15 dakikalık yazılı sohbete eşleş.</p>
+      <a class="web-download" href="Dertdas-V30.apk" download>Android APK indir</a>
+      <p class="web-install">Sürüm 1.0.30 · 1,2 MB</p>
+      <details class="web-install">
+        <summary>Android’de nasıl kurulur?</summary>
+        <p>İndirdiğin dosyayı aç. Telefon izin isterse kullandığın tarayıcı için bu kaynaktan yüklemeye izin ver, sonra kurulum ekranına dön.</p>
+      </details>
+    </div>
+  </section>
+  <section id="auth" class="auth" aria-label="Dertdaş hesabı">
+  <div class="brand"><span class="brand-mark"><svg class="icon" aria-hidden="true"><use href="#i-brand"></use></svg></span>Dertdaş</div>
+  <h1 id="authTitle">İçinde kalmasın.</h1>
+  <p id="authIntro" class="muted">Seni anlayan insanlarla konuşabileceğin bir yer.</p>
+  <form id="authForm">
+    <label for="email">E-posta</label>
+    <input id="email" type="email" required autocomplete="email">
+    <label for="password">Şifre</label>
+    <input id="password" type="password" required autocomplete="current-password">
+    <label id="termsChoice" class="check"><input id="acceptTerms" type="checkbox"> Topluluk kurallarını kabul ediyorum.</label>
+    <button id="login" type="submit" class="primary wide">Giriş yap</button>
+    <button id="register" type="submit" class="wide">Hesap oluştur</button>
+  </form>
+  <div id="verifyEmail" class="card" hidden><p>E-postandaki doğrulama bağlantısını açıp buraya dön.</p><button id="confirmEmail" class="primary">E-postamı doğruladım</button> <button id="resendEmail">Bağlantıyı tekrar gönder</button></div>
+  <div class="auth-links"><button id="resetPassword" type="button" class="quiet">Şifremi unuttum</button><button class="quiet rules-button">Topluluk kuralları</button></div>
+  <p id="authStatus" class="notice" role="status"></p>
+  </section>
+  <footer class="web-footer">
+    <a href="privacy.html">Gizlilik</a>
+    <a href="hesap-silme.html">Hesap silme</a>
+    <a href="cocuk-guvenligi.html">Çocuk güvenliği</a>
+  </footer>
+</div>
+<div id="app" hidden>
+  <header><div class="header-inner">
+    <div class="brand"><span class="brand-mark"><svg class="icon" aria-hidden="true"><use href="#i-brand"></use></svg></span>Dertdaş</div>
+    <div class="header-actions">
+      <a class="web-app-download" href="Dertdas-V30.apk" download aria-label="Android APK indir">APK indir</a>
+      <button id="headerWallet" class="icon-button wallet-button" aria-label="Jeton ve VIP"><svg class="icon" aria-hidden="true"><use href="#i-wallet"></use></svg></button>
+      <button id="toggleSearch" class="icon-button" aria-label="Gönderilerde ara" aria-expanded="false" aria-controls="searchPanel"><svg class="icon" aria-hidden="true"><use href="#i-search"></use></svg></button>
+      <button id="refresh" class="icon-button" aria-label="Yenile"><svg class="icon" aria-hidden="true"><use href="#i-refresh"></use></svg></button>
+    </div>
+  </div></header>
+  <p id="postConfirmation" class="notice post-confirmation" role="status" aria-live="polite"></p>
+  <main id="main">
+    <p id="status" class="notice" role="status"></p>
+    <section id="feed">
+      <div id="searchPanel" class="search-panel" hidden><label class="sr-only" for="search">Gönderilerde ara</label><input id="search" type="search" placeholder="Gönderilerde ara"></div>
+      <section class="home-hero" aria-labelledby="homeTitle">
+        <h1 id="homeTitle">İçinde<br>kalmasın.</h1>
+        <p>İçini dökebileceğin, dinlenebileceğin bir yer.</p>
+        <button id="homeWritten" type="button" class="home-chat">
+          <svg class="icon" aria-hidden="true"><use href="#i-chat"></use></svg>
+          Yazılı sohbet başlat
+          <svg class="icon home-arrow" aria-hidden="true"><use href="#i-arrow"></use></svg>
+        </button>
+      </section>
+      <button id="heroCompose" type="button" class="home-share">
+        <span class="home-share-icon"><svg class="icon" aria-hidden="true"><use href="#i-edit"></use></svg></span>
+        <span>Bir paylaşım yaz</span>
+        <svg class="icon home-arrow" aria-hidden="true"><use href="#i-arrow"></use></svg>
+      </button>
+      <div class="community-heading"><h2>Topluluklar</h2><button class="text-button" data-tab="communities">Tümünü gör <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></button></div>
+      <div id="chips" class="chips" aria-label="Topluluklar"></div>
+      <div class="feed-heading"><h2>Akış</h2><button id="unanswered" aria-pressed="false">Cevap bekleyenler</button></div>
+      <div id="posts" aria-live="polite"></div>
+    </section>
+    <section id="communities" hidden><h1>Topluluklar</h1><div id="communityList" class="grid"></div></section>
+    <section id="room" hidden>
+      <div class="room-nav"><button id="roomBack">‹ Akış</button><span id="roomName"></span><span id="roomMark" aria-hidden="true"></span></div>
+      <div class="room-hero"><h1 id="roomTitle"></h1><p id="roomIntro"></p><button id="shareRoom" hidden>Odayı paylaş</button></div>
+      <article class="room-panel counter-panel" id="recoveryCounter" hidden>
+        <div class="room-panel-heading"><h2>Kumarsız zaman</h2><span>Bu cihaza özel</span></div>
+        <div class="counter-values"><div><strong id="recoveryDays">0</strong><span>gün</span></div><div><strong id="recoveryHours">0</strong><span>saat</span></div></div>
+        <p id="recoveryStartDate" class="recovery-start" hidden></p>
+        <div class="counter-actions"><button id="recoveryEdit">Sayacı başlat</button><button id="recoveryClear" class="quiet" hidden>Sıfırla</button></div>
+      </article>
+      <article class="room-panel written-panel">
+        <div class="room-panel-heading"><h2>Yazılı sohbet</h2></div>
+        <p>15 dakika · Günde ilk görüşme ücretsiz. Sonrasında 25 jeton veya bir VIP yazılı görüşme hakkı.</p>
+        <div class="match-roles"><button id="writtenStart">Eşleşme ara</button><button id="writtenCancel" hidden>Aramayı iptal et</button><button id="writtenJoin" hidden>Görüşmeye katıl</button><button id="writtenWallet" hidden>Mağazayı aç</button></div>
+        <p id="writtenSearchStatus" class="match-status" role="status"></p>
+      </article>
+      <article id="roomTool" class="room-panel" hidden></article>
+      <details id="vipRoomGuide" class="room-guide room-content" hidden>
+        <summary id="vipRoomGuideTitle"></summary>
+        <p id="vipRoomGuideStatus" role="status"></p>
+        <ol id="vipRoomGuideSteps" hidden></ol>
+        <button id="roomVipShop" hidden>VIP üyeliği incele</button>
+      </details>
+      <div class="room-content"><h2>Oda rehberi</h2><div id="roomGuides"></div></div>
+      <div class="room-content"><h2>Bir yerden başla</h2><button id="roomPrompt" class="room-prompt"></button></div>
+      <div class="room-post-heading"><h2>Oda paylaşımları</h2><button id="roomCompose">Yaz</button></div>
+      <p id="roomPostStatus" class="match-status" role="status"></p>
+      <div id="roomPosts" aria-live="polite"></div>
+    </section>
+    <section id="journal" hidden aria-labelledby="journalTitle">
+      <header class="journal-header">
+        <span class="journal-mark" aria-hidden="true"><svg class="icon"><use href="#i-journal"></use></svg></span>
+        <div><h1 id="journalTitle">Günlüğüm</h1><p>Notların yalnızca bu cihazda saklanır.</p></div>
+      </header>
+      <form id="journalForm" class="card journal-form">
+        <label id="journalLabel" for="journalText">Bugün aklında ne var?</label>
+        <textarea id="journalText" rows="5" maxlength="5000" required placeholder="İçinden geçenleri yaz…"></textarea>
+        <div class="journal-actions">
+          <button id="journalSave" type="submit" class="primary">Notu kaydet</button>
+          <button id="journalCancel" type="button" class="quiet" hidden>Vazgeç</button>
+        </div>
+      </form>
+      <p id="journalStatus" class="notice" role="status"></p>
+      <h2 class="journal-list-title">Geçmiş notlar</h2>
+      <div id="journalEntries"></div>
+    </section>
+    <section id="profile" hidden aria-labelledby="profileName">
+      <div class="profile-hero">
+        <span id="profileAvatar" class="avatar" aria-hidden="true"></span>
+        <div><p>Profilim</p><h1 id="profileName"></h1></div>
+      </div>
+      <section class="card profile-card" aria-labelledby="profileDetails">
+        <h2 id="profileDetails">Profil bilgileri</h2>
+        <form id="profileForm">
+          <label for="nick">Görünen ad</label>
+          <div class="profile-field"><input id="nick" minlength="2" maxlength="24" required><button>Kaydet</button></div>
+          <p id="profileNameStatus" class="notice profile-status" role="status"></p>
+        </form>
+        <form id="handleForm">
+          <label for="handle">Kullanıcı adı</label>
+          <div class="profile-field"><input id="handle" pattern="[a-zA-Z0-9_]{3,24}" maxlength="24" placeholder="kullanici_adin" aria-describedby="handleHint" required><button>Kaydet</button></div>
+          <small id="handleHint">Hesabın için benzersiz bir kullanıcı adı seç.</small>
+          <p id="profileHandleStatus" class="notice profile-status" role="status"></p>
+        </form>
+      </section>
+      <section class="card profile-card" aria-labelledby="profileInterests">
+        <h2 id="profileInterests">İlgilendiğin odalar</h2>
+        <p class="profile-hint">Seçtiğin odaların paylaşımları akışta öne çıkar.</p>
+        <div id="topicPreferences"></div>
+      </section>
+      <div class="profile-shortcuts">
+        <button id="openWallet"><svg class="icon" aria-hidden="true"><use href="#i-wallet"></use></svg>Jeton ve VIP</button>
+        <button id="openActivity"><svg class="icon" aria-hidden="true"><use href="#i-chat"></use></svg>Bildirimler</button>
+      </div>
+      <section class="card profile-card profile-account" aria-labelledby="profilePrivacy">
+        <h2 id="profilePrivacy">Gizlilik ve hesap</h2>
+        <label class="check"><input id="replyNotices" type="checkbox" checked> Gönderi yanıtlarını bildirimlerde göster</label>
+        <button id="openPrivacy">Gizlilik politikası</button><div id="blockedList"></div>
+        <div class="profile-account-actions"><button class="quiet rules-button">Topluluk kuralları</button><button id="requestDelete" class="quiet danger">Hesap silme talebi</button></div>
+      </section>
+      <button id="moderate" hidden>Moderasyon paneli</button>
+      <button id="logout" class="quiet">Çıkış yap</button>
+    </section>
+    <section id="moderation" hidden><h1>Moderasyon</h1><div id="reportList"></div></section>
+    <section id="deletion" hidden>
+      <h1>Hesap silme talebi</h1>
+      <div class="card"><p>Talep, hesabının ve hesabına bağlı profil, paylaşım, yorum ve mesaj verilerinin silinmesi için incelemeye gönderilir.</p><button id="confirmDelete" class="danger">Silme talebini gönder</button></div>
+      <button id="cancelDelete">Geri dön</button>
+    </section>
+  </main>
+  <nav id="nav" aria-label="Ana menü">
+    <button data-tab="feed"><svg class="icon" aria-hidden="true"><use href="#i-home"></use></svg><span>Akış</span></button>
+    <button data-tab="communities"><svg class="icon" aria-hidden="true"><use href="#i-community"></use></svg><span>Topluluklar</span></button>
+    <button id="compose"><span class="nav-compose"><svg class="icon" aria-hidden="true"><use href="#i-plus"></use></svg></span><span>Paylaş</span></button>
+    <button data-tab="journal"><svg class="icon" aria-hidden="true"><use href="#i-journal"></use></svg><span>Günlük</span></button>
+    <button data-tab="profile"><svg class="icon" aria-hidden="true"><use href="#i-person"></use></svg><span>Profil</span></button>
+  </nav>
+</div>
+<dialog id="recoveryDialog">
+  <form id="recoveryForm">
+    <h2>Kumarsız zaman başlangıcı</h2>
+    <p>Sayacın başlangıç tarihi yalnızca bu cihazda saklanır.</p>
+    <label for="recoveryDate">Başlangıç tarihi ve saati</label>
+    <input id="recoveryDate" type="datetime-local" required>
+    <p class="notice" id="recoveryError" role="status"></p>
+    <div class="row"><button type="button" data-close="recoveryDialog">Vazgeç</button><button class="primary">Kaydet</button></div>
+  </form>
+</dialog>
+<dialog id="composer">
+  <form id="postForm">
+    <h2>Yeni paylaşım</h2>
+    <label for="category">Topluluk</label><select id="category"></select>
+    <label for="postText">Paylaşımın</label><textarea id="postText" rows="5" maxlength="1000" required placeholder="Bugün aklında ne var?"></textarea>
+    <p id="composeStatus" class="notice" role="status"></p>
+    <div class="row"><button type="button" id="composeCancel" data-close="composer">Vazgeç</button><button class="primary">Paylaş</button></div>
+  </form>
+</dialog>
+<dialog id="feedback">
+  <form id="feedbackForm">
+    <h2 id="feedbackTitle"></h2><p id="feedbackText"></p>
+    <label id="reasonLabel" for="reason">Bildirme nedeni</label>
+    <textarea id="reason" maxlength="500" rows="3"></textarea>
+    <p id="feedbackStatus" class="notice" role="status"></p>
+    <div class="row"><button type="button" data-close="feedback">Vazgeç</button><button id="feedbackOK" class="primary">Onayla</button></div>
+  </form>
+</dialog>
+<dialog id="rules">
+  <h2>Topluluk kuralları</h2>
+  <p>İnsanlara saygılı davran. Tehdit, taciz, nefret söylemi, cinsel içerik, dolandırıcılık, spam ve kumar reklamları yasaktır.</p>
+  <p>Başkasının kimlik ve iletişim bilgilerini paylaşma. Kendi adresini, telefonunu ve benzeri özel bilgilerini de gönderilerden uzak tut.</p>
+  <p>Gönderileri, yorumları ve kullanıcıları bildirebilirsin. Moderatörler içerikleri kaldırabilir ve hesapların erişimini durdurabilir.</p>
+  <form method="dialog"><button class="primary">Kapat</button></form>
+</dialog>
+<dialog id="termsGate">
+  <h2>Topluluk kuralları</h2>
+  <p>Devam etmek için Dertdaş topluluk kurallarını kabul et.</p>
+  <button class="quiet rules-button wide">Kuralları oku</button>
+  <p id="termsStatus" class="notice" role="status"></p>
+  <div class="row"><button id="termsExit">Çıkış yap</button><button id="termsAccept" class="primary">Kabul et</button></div>
+</dialog>
+  <dialog id="activityDialog"><div class="split"><h2>Bildirimler</h2><button id="closeActivity">Kapat</button></div>
+    <p id="activityStatus" role="status"></p><div id="activityRows"></div>
+  </dialog>
+  <dialog id="privacyDialog"><div class="split"><h2>Gizlilik politikası</h2><button id="closePrivacy">Kapat</button></div>
+    <div id="privacyText"></div>
+  </dialog>
+  <dialog id="walletDialog" aria-labelledby="shopTitle">
+    <div class="split shop-top"><h2 id="shopTitle">Jeton ve VIP</h2><button id="closeWallet" aria-label="Kapat">Kapat</button></div>
+    <section class="wallet-summary" aria-labelledby="walletBalanceTitle">
+      <h3 id="walletBalanceTitle">Jeton bakiyen</h3>
+      <div class="wallet-total" aria-live="polite">
+        <strong id="walletBalance">—</strong><span id="walletUnit" hidden>jeton</span>
+      </div>
+      <p id="walletBalanceStatus" class="wallet-note" role="status"></p>
+      <p id="walletVipSummary" class="wallet-note" hidden></p>
+    </section>
+    <p id="paymentStatus" class="shop-notice" role="status"></p>
+    <section class="vip-plans" aria-label="VIP üyelikler">
+      <p>VIP paketleri ve ek görüşme hakları.</p>
+      <div id="vipPlans"></div>
+    </section>
+    <section class="shop-products" aria-labelledby="shopPackagesTitle">
+      <h3 id="shopPackagesTitle">Jeton paketleri</h3>
+      <p>Yazılı görüşmeler ve oda özellikleri için.</p>
+      <div id="walletProducts"></div>
+    </section>
+    <button id="shopSignIn" class="primary" hidden>Giriş yap</button>
+    <button id="syncPlay" hidden>Bakiyeyi yenile</button>
+    <details id="walletActivity" hidden><summary>Jeton hareketleri</summary><div id="walletHistory"></div></details>
+  </dialog>
+  <dialog id="decisionSheet" aria-labelledby="decisionTitle" aria-describedby="decisionInfo">
+    <form method="dialog">
+      <header class="decision-header">
+        <span class="decision-mark" id="decisionMark" aria-hidden="true">↗</span>
+        <div><h2 id="decisionTitle"></h2><p id="decisionInfo"></p></div>
+      </header>
+      <ul id="decisionDetails" hidden></ul>
+      <footer class="decision-actions">
+        <button id="decisionCancel" value="cancel" autofocus>Vazgeç</button>
+        <button id="decisionConfirm" class="primary" value="confirm">Devam et</button>
+      </footer>
+    </form>
+  </dialog>
+  <dialog id="writtenDialog" aria-labelledby="writtenTitle">
+    <div class="split"><h2 id="writtenTitle">Yazılı sohbet</h2><button id="writtenEnd">Bitir</button></div>
+    <p id="writtenClock"></p><p id="writtenStatus" role="status"></p>
+    <div class="match-roles"><button id="writtenReport">Bildir</button><button id="writtenBlock">Engelle</button></div>
+    <div id="writtenItems" aria-label="Görüşme mesajları"></div>
+    <form id="writtenForm" class="row" hidden><input id="writtenText" maxlength="1000" required aria-label="Mesaj" placeholder="Mesaj yaz"><button class="primary">Gönder</button></form>
+  </dialog>
+</body>
+</html>
