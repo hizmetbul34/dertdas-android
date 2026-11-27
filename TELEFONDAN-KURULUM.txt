@@ -1,0 +1,10 @@
+DERTDAS - TELEFONDAN APK OLUSTURMA
+
+1) ZIP dosyasini indir ve Android telefonunda cikart.
+2) github.com adresini Chrome'da ac, giris yap veya hesap olustur.
+3) New repository ile dertdas-android adinda repo olustur.
+4) ZIP'ten cikan dert-das klasorunun ICINDEKİ dosyalari repo ana dizinine yukle. .github klasoru de yuklenmeli.
+5) Repo > Actions sekmesine gir. Android build workflow'u sec. Run workflow varsa calistir; yoksa main'e dosya yukleyince otomatik calisir.
+6) Build tamamlaninca workflow sayfasinda dertdas-android-files artifact dosyasini indir. ZIP'i acinca APK ve AAB bulunur. APK telefonuna kurulabilir (uyari cikarsa izin vermen gerekir). AAB Google Play Console icin build dosyasidir; Play'e yuklemek icin hesap, imza, test ve gerekli Play politikasi adimlari gerekir.
+
+Bu proje su an baslangic/demo uygulamasidir. Gercek online mesajlasma, Firebase, moderasyon, reklam ve Premium odemeleri henuz bagli degildir.
