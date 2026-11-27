@@ -8,12 +8,12 @@
   <title>Dertdaş · İçinde kalmasın</title>
   <meta name="description" content="Dertdaş topluluklarına katıl, bir yazılı sohbete eşleş veya Android uygulamasını indir.">
   <link rel="stylesheet" href="web.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=31">
   <script defer src="config.js"></script>
   <script defer src="app.js"></script>
   <script defer src="rooms.js"></script>
   <script defer src="release.js"></script>
-  <script defer src="written.js"></script>
+  <script defer src="written.js?v=31"></script>
   <script defer src="journal.js"></script>
 </head>
 <body>
@@ -24,8 +24,8 @@
     <div class="web-intro-copy">
       <h2 id="welcomeTitle">Bazen konuşmak iyi gelir.</h2>
       <p>Aile, ilişkiler, kumar sorunları ve günlük hayat üzerine paylaşım yap. İstersen bir odada 15 dakikalık yazılı sohbete eşleş.</p>
-      <a class="web-download" href="Dertdas-V30.apk" download>Android APK indir</a>
-      <p class="web-install">Sürüm 1.0.30 · 1,2 MB</p>
+      <a class="web-download" href="Dertdas-V31.apk" download>Android APK indir</a>
+      <p class="web-install">Sürüm 1.0.31 · 1,2 MB</p>
       <details class="web-install">
         <summary>Android’de nasıl kurulur?</summary>
         <p>İndirdiğin dosyayı aç. Telefon izin isterse kullandığın tarayıcı için bu kaynaktan yüklemeye izin ver, sonra kurulum ekranına dön.</p>
@@ -59,7 +59,7 @@
   <header><div class="header-inner">
     <div class="brand"><span class="brand-mark"><svg class="icon" aria-hidden="true"><use href="#i-brand"></use></svg></span>Dertdaş</div>
     <div class="header-actions">
-      <a class="web-app-download" href="Dertdas-V30.apk" download aria-label="Android APK indir">APK indir</a>
+      <a class="web-app-download" href="Dertdas-V31.apk" download aria-label="Android APK indir">APK indir</a>
       <button id="headerWallet" class="icon-button wallet-button" aria-label="Jeton ve VIP"><svg class="icon" aria-hidden="true"><use href="#i-wallet"></use></svg></button>
       <button id="toggleSearch" class="icon-button" aria-label="Gönderilerde ara" aria-expanded="false" aria-controls="searchPanel"><svg class="icon" aria-hidden="true"><use href="#i-search"></use></svg></button>
       <button id="refresh" class="icon-button" aria-label="Yenile"><svg class="icon" aria-hidden="true"><use href="#i-refresh"></use></svg></button>
@@ -102,7 +102,7 @@
       <article class="room-panel written-panel">
         <div class="room-panel-heading"><h2>Yazılı sohbet</h2></div>
         <p>15 dakika · Günde ilk görüşme ücretsiz. Sonrasında 25 jeton veya bir VIP yazılı görüşme hakkı.</p>
-        <div class="match-roles"><button id="writtenStart">Eşleşme ara</button><button id="writtenCancel" hidden>Aramayı iptal et</button><button id="writtenJoin" hidden>Görüşmeye katıl</button><button id="writtenWallet" hidden>Mağazayı aç</button></div>
+        <div class="match-roles"><button id="writtenStart">Eşleşme ara</button><button id="writtenCancel" hidden>Aramayı iptal et</button><button id="writtenJoin" hidden>Görüşmeye katıl</button><button id="writtenWallet" hidden>Mağazayı aç</button><button id="writtenFavorites" type="button">Favoriler</button></div>
         <p id="writtenSearchStatus" class="match-status" role="status"></p>
       </article>
       <article id="roomTool" class="room-panel" hidden></article>
@@ -273,11 +273,46 @@
     </form>
   </dialog>
   <dialog id="writtenDialog" aria-labelledby="writtenTitle">
-    <div class="split"><h2 id="writtenTitle">Yazılı sohbet</h2><button id="writtenEnd">Bitir</button></div>
-    <p id="writtenClock"></p><p id="writtenStatus" role="status"></p>
-    <div class="match-roles"><button id="writtenReport">Bildir</button><button id="writtenBlock">Engelle</button></div>
-    <div id="writtenItems" aria-label="Görüşme mesajları"></div>
-    <form id="writtenForm" class="row" hidden><input id="writtenText" maxlength="1000" required aria-label="Mesaj" placeholder="Mesaj yaz"><button class="primary">Gönder</button></form>
+    <div class="chat-top">
+      <span id="writtenAvatar" class="chat-avatar" aria-hidden="true">D</span>
+      <div class="chat-heading">
+        <h2 id="writtenTitle">Yazılı sohbet</h2>
+        <p id="writtenRoom"></p>
+      </div>
+      <p id="writtenClock" aria-label="Kalan süre" hidden></p>
+      <details id="writtenMenu" class="chat-menu">
+        <summary aria-label="Sohbet seçenekleri">⋯</summary>
+        <div>
+          <button id="writtenReport" type="button">Bildir</button>
+          <button id="writtenBlock" type="button">Engelle</button>
+          <button id="writtenEnd" type="button" class="danger">Sohbeti bitir</button>
+        </div>
+      </details>
+    </div>
+    <div id="writtenActions" class="chat-actions" hidden>
+      <button id="writtenExtend" type="button"><span aria-hidden="true">◷</span> Uzat</button>
+      <button id="writtenFavorite" type="button" aria-pressed="false"><span aria-hidden="true">☆</span> Favori</button>
+      <button id="writtenGift" type="button" aria-expanded="false" aria-controls="writtenGifts"><span aria-hidden="true">✦</span> Hediye</button>
+    </div>
+    <div id="writtenOffer" class="chat-offer" hidden>
+      <p id="writtenOfferText"></p>
+      <div id="writtenOfferActions" hidden><button id="writtenDecline" type="button">Reddet</button><button id="writtenAccept" type="button" class="primary">Kabul et</button></div>
+    </div>
+    <p id="writtenStatus" role="status"></p>
+    <div id="writtenItems" role="log" aria-label="Görüşme mesajları" aria-live="polite" aria-relevant="additions"></div>
+    <section id="writtenGifts" class="chat-gifts" aria-labelledby="writtenGiftsTitle" hidden>
+      <div class="split"><h3 id="writtenGiftsTitle">Bir hediye seç</h3><button id="writtenGiftsClose" type="button" aria-label="Hediyeleri kapat">×</button></div>
+      <div id="writtenGiftList"></div>
+    </section>
+    <form id="writtenForm" hidden>
+      <input id="writtenText" maxlength="1000" required aria-label="Mesaj" placeholder="Mesaj yaz…" autocomplete="off">
+      <button class="primary" aria-label="Mesajı gönder"><span aria-hidden="true">↑</span></button>
+    </form>
+  </dialog>
+  <dialog id="writtenFavoritesDialog" aria-labelledby="writtenFavoritesTitle">
+    <div class="split"><h2 id="writtenFavoritesTitle">Favori sohbet arkadaşları</h2><button id="writtenFavoritesClose" type="button">Kapat</button></div>
+    <p id="writtenFavoritesStatus" role="status"></p>
+    <div id="writtenFavoritesList"></div>
   </dialog>
 </body>
 </html>
