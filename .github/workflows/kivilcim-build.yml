@@ -17,6 +17,7 @@ jobs:
         with:
           distribution: temurin
           java-version: '17'
+      - uses: android-actions/setup-android@v3
       - name: Build Android App Bundle
         shell: bash
         env:
