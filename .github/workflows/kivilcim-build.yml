@@ -1,0 +1,40 @@
+name: Kivilcim Android bundle
+on:
+  push:
+    branches: [kivilcim]
+    paths:
+      - .github/workflows/kivilcim-build.yml
+      - Kivilcim-V5-Kaynak-ve-Play-Paketi.zip
+permissions:
+  contents: read
+jobs:
+  bundle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Build Android App Bundle
+        shell: bash
+        env:
+          KIVILCIM_ORIGIN: https://kivilcim-topluluk.onrender.com
+          KIVILCIM_KEY_ALIAS: temporary-validation
+        run: |
+          unzip -q Kivilcim-V5-Kaynak-ve-Play-Paketi.zip
+          sdkmanager 'platforms;android-36' 'build-tools;35.0.0'
+          export KIVILCIM_KEYSTORE="$RUNNER_TEMP/kivilcim-validation.p12"
+          export KIVILCIM_KEYSTORE_PASSWORD=$(openssl rand -hex 24)
+          export KIVILCIM_KEY_PASSWORD="$KIVILCIM_KEYSTORE_PASSWORD"
+          keytool -genkeypair -storetype PKCS12 -keystore "$KIVILCIM_KEYSTORE" -storepass:env KIVILCIM_KEYSTORE_PASSWORD -alias "$KIVILCIM_KEY_ALIAS" -keyalg RSA -keysize 2048 -validity 30 -dname 'CN=Kivilcim CI Validation'
+          cd Kivilcim
+          chmod +x gradlew
+          ./gradlew --no-daemon :app:bundleRelease
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Kivilcim-validation-bundle
+          path: Kivilcim/app/build/outputs/bundle/release/*.aab
+          if-no-files-found: error
+          retention-days: 3
