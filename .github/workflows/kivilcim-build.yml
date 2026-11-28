@@ -18,6 +18,8 @@ jobs:
           distribution: temurin
           java-version: '17'
       - uses: android-actions/setup-android@v3
+        with:
+          packages: 'platform-tools platforms;android-36 build-tools;35.0.0'
       - name: Build Android App Bundle
         shell: bash
         env:
@@ -25,7 +27,6 @@ jobs:
           KIVILCIM_KEY_ALIAS: temporary-validation
         run: |
           unzip -q Kivilcim-V5-Kaynak-ve-Play-Paketi.zip
-          sdkmanager 'platforms;android-36' 'build-tools;35.0.0'
           export KIVILCIM_KEYSTORE="$RUNNER_TEMP/kivilcim-validation.p12"
           export KIVILCIM_KEYSTORE_PASSWORD=$(openssl rand -hex 24)
           export KIVILCIM_KEY_PASSWORD="$KIVILCIM_KEYSTORE_PASSWORD"
